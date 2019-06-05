@@ -66,7 +66,7 @@ function signin(){
   console.log(email);
 
   var actionCodeSettings = {
-    url: 'https://resgatefeudal.page.link/principal',
+    url: 'https://resgatefeudal.page.link/cfmail',
     handleCodeInApp: true,
     iOS: {
     },
@@ -84,4 +84,20 @@ function signin(){
     //window.alert("Ocorreu um erro. Tente Novamente");
     console.log(error);
   });
+}
+
+function concluicad(){
+  if(firebase.auth().isSignInWithEmailLink(window.location.href)) {
+    var eemail = window.localStorage.getItem('emailForSignIn');
+      if(!email) {
+        eemail = window.prompt('Forneça um email para confirmação');
+      }
+      firebase.auth().isSignInWithEmailLink(eemail, window.location.href)
+      .then(function(result){
+        window.localStorage.removeItem('emailForSignIn');
+      })
+      .catch(function(error){
+        console.log(error);
+      }) 
+    }
 }
