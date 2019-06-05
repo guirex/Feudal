@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feudal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Kaushan+Script|Pacifico|Satisfy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li class="navi"><a href="#about">Resgate Feudal</a></li>
+            <li class="navi"><a href="#download">Download</a></li>
+            <li class="navi"><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
+        <section id="about">
+            <h1>Resgate Feudal</h1>
+            <p>O Resgate Feudal, é um jogo de plataforma 2D, em estilo Pixel Art. Ele busca auxiliar no processo de 
+            aprendizagem sobre o período feudal, por meio da jogatina normal de games de plataforma, apresentando
+            informações pertinentes ao conteúdo. Via questionários, imagens, e alguns puzzles.</p>
+        </section>
+        
+        <section id="download">
+            <h1>Download</h1>
+            <p>Cadastre-se abaixo para efetuar o download de graça!</p>
+            <form action="" class="frm">
+                <label for="inome">Nome:</label><br>
+                <input type="text" id="inome">
+                <br>
+
+                <label for="isobrenome">Sobrenome:</label><br>
+                <input type="text" id="isobrenome">
+                <br>
+
+                <label for="iemail">E-mail:</label><br>
+                <input type="text" id="iemail">
+                <br>
+
+                <br><br>
+
+                <input type="button" value="Cadastrar" onclick="signin()">
+            </form>
+
+        </section>
+
+        <section id="contact">
+            <h1>Contato</h1>
+            <p>Todas informações sobre os criadores do jogo</p>
+        </section>
+
+        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+
+    <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyCNQe_duHgUbQjp3o1B4rsLKnIE6jUkre0",
+        authDomain: "resgatefeudal.firebaseapp.com",
+        databaseURL: "https://resgatefeudal.firebaseio.com",
+        projectId: "resgatefeudal",
+        storageBucket: "resgatefeudal.appspot.com",
+        messagingSenderId: "835904784294",
+        appId: "1:835904784294:web:8dff2431715380ff"
+    };
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <script type="text/javascript" src="style.js"></script>
+    </body>
+</html>

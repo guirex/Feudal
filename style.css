@@ -1,0 +1,65 @@
+
+nav {
+	width: 100%;
+    background: #503900;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+}
+
+nav ul {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+	list-style-type: none;
+}
+
+nav a {
+    font-family: 'Courgette', cursive;
+	padding: 10px 20px;
+	text-decoration: none;
+    color: white;
+	font-size: 32px;
+}
+
+nav a:hover {
+	text-decoration: underline;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+	background-color: white;
+	background-image: url('/images/logoresgatefeudal.png');
+	background-repeat: no-repeat;
+	background-position: 100%;
+}
+
+section {
+	max-width: 600px;
+	margin: 80px auto;
+    padding: 0 20px;
+	background-color: white;
+	border-radius: 25px;
+}
+
+h1{
+    text-align: left;
+    margin: 0;
+	padding-top: 20px;
+}
+
+p,input, label,h1{
+	font-family: 'Courgette', cursive;
+	color: #503900;
+	text-align: justify
+}
+input{
+	margin: 10px;
+}
+
+.logo{
+	background-repeat: no-repeat;
+	background-position: 50%, 10px;
+}
