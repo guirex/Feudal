@@ -16,6 +16,8 @@
             <li class="navi"><a href="#contact">Contato</a></li>
         </ul>
     </nav>
+
+
         <section id="about">
             <h1>Sobre</h1>
             <p>O Resgate Feudal, é um jogo de plataforma 2D, em estilo Pixel Art. Ele busca auxiliar no processo de 
@@ -34,32 +36,47 @@
                 <input type="password" id="lsenha">
                 <br>
                 <input type="button" value="Entrar" onclick="Logar()">
-                <p>Caso não tenha um login cadastre-se <a href="" onclick="chamaModalCad()">aqui</a></p>
+                <p>Caso não tenha um login cadastre-se <input id="btcadastrar" type="button" onclick="chamaModalCad()" value="aqui">.</p>
             </div>
-            <div id="cadastrar"><h1>Login</h1>
-                <p>Cadastre-se abaixo para efetuar o download de graça!</p>
-                <form action="" class="frm">
-                    <label for="inome">Nome Completo:</label><br>
-                    <input type="text" id="inome">
-                    <br>
+            <div id="cadastrar">                
+                <div id="cont">
+                        <span id="close" onclick="document.getElementById('cadastrar').style.display = 'none'">&times;</span>
+                    <h1>Login</h1>
+                    <p>Cadastre-se abaixo para efetuar o download de graça!</p>
+                    <form action="" class="frm">
+                        <label for="inome">Nome Completo:</label><br>
+                        <input type="text" id="inome"><br>
+            
+                        <label for="iemail">E-mail:</label><br>
+                        <input type="text" id="iemail"><br>
+            
+                        <label for="isenha">Senha:</label><br>
+                        <input type="password" id="isenha"><br>
+                        
+                        <label for="">Categoria</label><br>
+                        <input type="radio" id="est" name="cat" value="Estudante">
+                        <label for="est">Estudante</label>
+                        <input type="radio" id="prof" name="cat" value="Professor">
+                        <label for="prof">Professor</label>
+                        <input type="radio" id="outr" name="cat" value="Outro">
+                        <label for="outr">Outro</label>
 
-                    <label for="iemail">E-mail:</label><br>
-                    <input type="text" id="iemail">
-                    <br>
-
-                    <label for="isenha">Senha:</label><br>
-                    <input type="password" id="isenha">
-                    <br>
-
-                    <br><br>
-
-                    <input type="button" value="Cadastrar" onclick="signin()">
-                </form>
+                        <br><br>
+            
+                        <input type="button" value="Cadastrar" onclick="signin()">
+                    </form>
+                </div>
             </div>
             <div id="game">
                 <h1>ResgateFeudal</h1>
+                <p>Instruções:</p>
+                <p>A - Move o personagem para esquerda</p>
+                <p>D - Move o personagem para direta</p>
+                <p>SPACE - Faz o personagem pular</p>
+                <img src="https://steamcdn-a.akamaihd.net/steam/apps/274190/header.jpg?t=1511400974" alt=""><br>
+                <br><br>
+                <p>Caso desejar baixar o jogo você pode baixa-lo <a href="">aqui</a></p>
                 <input type="button" value="Sair" onclick="Sair()">
-
             </div>
         </section>
 

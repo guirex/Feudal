@@ -70,27 +70,45 @@ function pegavlr(){
 
 }
 */
+function getRadioValor(cat){
+  var rads = document.getElementsByName("cat");
+   
+  for(var i = 0; i < rads.length; i++){
+   if(rads[i].checked){
+    return rads[i].value;
+   }
+  }
+}
 
 function signin(){
   var nome = document.getElementById("inome").value;
   var email = document.getElementById("iemail").value;
   var senha = document.getElementById("isenha").value;
+  var categoria = getRadioValor('cat');
+  
+  console.log(nome)
+  console.log(email)
+  console.log(senha)
+  console.log(categoria)
 
   var ref = firebase.database().ref("Users/"); 
 
   if(firebase.auth().createUserWithEmailAndPassword(email, senha) && ref.push({
     Nome: nome,
     Email: email,
-    Senha: senha
+    Senha: senha,
+    Categoria: categoria
   })){
     //Informa ao usuário
     window.alert("Usuário Cadastrado!");
-
+    document.getElementById("cadastrar").style.display = "none";
     if(firebase.auth().signInWithEmailAndPassword(email, senha)){
-    var divLog = document.getElementById("game").style.display = "block";
-    var divGame = document.getElementById("login").style.display = "none";   
+    window.alert("Usuário Logado");
+    document.getElementById("opc").style.display="none";
+    document.getElementById("game").style.display="block";   
     }
   }
+
 }
 
 function Logar(){
@@ -103,13 +121,15 @@ function Logar(){
     }
 }
 
-function chamaModalCad(){
-  document.getElementById("game").style.display="block";
-}
-
 function Sair(){
   if(firebase.auth().signOut()){
     document.getElementById("opc").style.display = "block";
-    document.getElementById("game").style.display = "none";   
+    document.getElementById("game").style.display = "none";
+    document.getElementById("lemail").value = "";
+    document.getElementById("lsenha").value = "";   
   }
+}
+
+function chamaModalCad(){
+  document.getElementById("cadastrar").style.display="block";
 }
