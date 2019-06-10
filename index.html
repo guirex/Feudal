@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,33 +17,50 @@
         </ul>
     </nav>
         <section id="about">
-            <h1>Resgate Feudal</h1>
+            <h1>Sobre</h1>
             <p>O Resgate Feudal, é um jogo de plataforma 2D, em estilo Pixel Art. Ele busca auxiliar no processo de 
             aprendizagem sobre o período feudal, por meio da jogatina normal de games de plataforma, apresentando
             informações pertinentes ao conteúdo. Via questionários, imagens, e alguns puzzles.</p>
         </section>
         
         <section id="download">
-            <h1>Download</h1>
-            <p>Cadastre-se abaixo para efetuar o download de graça!</p>
-            <form action="" class="frm">
-                <label for="inome">Nome:</label><br>
-                <input type="text" id="inome">
+            <div id="opc">
+                <h1>ResgateFeudal</h1>
+                <p>Para fazer o download ou jogar pela web, faça login abaixo.</p>
+                <label for="lemail">Email:</label><br>
+                <input type="text" id="lemail">
+                <br>   
+                <label for="lsenha">Senha:</label><br>
+                <input type="password" id="lsenha">
                 <br>
+                <input type="button" value="Entrar" onclick="Logar()">
+                <p>Caso não tenha um login cadastre-se <a href="" onclick="chamaModalCad()">aqui</a></p>
+            </div>
+            <div id="cadastrar"><h1>Login</h1>
+                <p>Cadastre-se abaixo para efetuar o download de graça!</p>
+                <form action="" class="frm">
+                    <label for="inome">Nome Completo:</label><br>
+                    <input type="text" id="inome">
+                    <br>
 
-                <label for="isobrenome">Sobrenome:</label><br>
-                <input type="text" id="isobrenome">
-                <br>
+                    <label for="iemail">E-mail:</label><br>
+                    <input type="text" id="iemail">
+                    <br>
 
-                <label for="iemail">E-mail:</label><br>
-                <input type="text" id="iemail">
-                <br>
+                    <label for="isenha">Senha:</label><br>
+                    <input type="password" id="isenha">
+                    <br>
 
-                <br><br>
+                    <br><br>
 
-                <input type="button" value="Cadastrar" onclick="signin()">
-            </form>
+                    <input type="button" value="Cadastrar" onclick="signin()">
+                </form>
+            </div>
+            <div id="game">
+                <h1>ResgateFeudal</h1>
+                <input type="button" value="Sair" onclick="Sair()">
 
+            </div>
         </section>
 
         <section id="contact">
@@ -51,7 +68,8 @@
             <p>Todas informações sobre os criadores do jogo</p>
         </section>
 
-        <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
 
     <script>

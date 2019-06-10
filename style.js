@@ -56,48 +56,60 @@ function smoothScrollTo(endX, endY, duration) {
   }, 1000 / 60); // 60 fps
 };
 
-function signin(){
-  var nome = document.getElementById("inome").value;
-  var sobrenome = document.getElementById("isobrenome").value;
-  var email = document.getElementById("iemail").value;
-
-  console.log(nome);
-  console.log(sobrenome);
-  console.log(email);
-
-  var actionCodeSettings = {
-    url: 'https://resgatefeudal.page.link/cfmail',
-    handleCodeInApp: true,
-    iOS: {
-    },
-    android: {
-    },
-    
-  };
-  
-  firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
-  .then(function() {
-    window.alert("Verifique seu email para terminar o cadastro!");
-    window.localStorage.setItem('emailForSignIn', email);
-  })
-  .catch(function(error) {
-    //window.alert("Ocorreu um erro. Tente Novamente");
-    console.log(error);
-  });
+/* function User(_nome, _sobrenome, _email,_senha){
+  this.Nome = _nome;
+  this.Sobrenome = _sobrenome;
+  this.Email = _email;
+  this.Senha = _senha;
 }
 
-function concluicad(){
-  if(firebase.auth().isSignInWithEmailLink(window.location.href)) {
-    var eemail = window.localStorage.getItem('emailForSignIn');
-      if(!email) {
-        eemail = window.prompt('Forneça um email para confirmação');
-      }
-      firebase.auth().isSignInWithEmailLink(eemail, window.location.href)
-      .then(function(result){
-        window.localStorage.removeItem('emailForSignIn');
-      })
-      .catch(function(error){
-        console.log(error);
-      }) 
+function pegavlr(){
+  var nome = document.getElementById("inome").value;
+  var email = document.getElementById("iemail").value;
+  var senha = document.getElementById("isenha").value;
+
+}
+*/
+
+function signin(){
+  var nome = document.getElementById("inome").value;
+  var email = document.getElementById("iemail").value;
+  var senha = document.getElementById("isenha").value;
+
+  var ref = firebase.database().ref("Users/"); 
+
+  if(firebase.auth().createUserWithEmailAndPassword(email, senha) && ref.push({
+    Nome: nome,
+    Email: email,
+    Senha: senha
+  })){
+    //Informa ao usuário
+    window.alert("Usuário Cadastrado!");
+
+    if(firebase.auth().signInWithEmailAndPassword(email, senha)){
+    var divLog = document.getElementById("game").style.display = "block";
+    var divGame = document.getElementById("login").style.display = "none";   
     }
+  }
+}
+
+function Logar(){
+  var email = document.getElementById("iemail").value;
+  var senha = document.getElementById("isenha").value;
+
+  if(firebase.auth().signInWithEmailAndPassword(email, senha)){
+    document.getElementById("opc").style.display = "none";
+    document.getElementById("game").style.display = "block";   
+    }
+}
+
+function chamaModalCad(){
+  document.getElementById("game").style.display="block";
+}
+
+function Sair(){
+  if(firebase.auth().signOut()){
+    document.getElementById("opc").style.display = "block";
+    document.getElementById("game").style.display = "none";   
+  }
 }
